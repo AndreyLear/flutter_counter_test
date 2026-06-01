@@ -11,8 +11,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: ThemeData(
+        colorScheme: .fromSeed(
+          seedColor: const Color.fromARGB(255, 20, 193, 55),
+        ),
+      ),
+      home: const MyHomePage(title: 'Profile'),
     );
   }
 }
@@ -27,32 +31,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  final String _designerName = 'Andrey Lear';
-  double _fontSize = 12.0;
-
-  bool _showName = false;
-
-  void _toggleName() {
-    _showName = _counter >= 5 ? true : false;
-  }
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      _fontSize += _counter;
-      _toggleName();
-    });
-  }
-
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-      _fontSize -= _counter;
-      _toggleName();
-    });
-  }
+  final Map<String, dynamic> _profileData = {
+    'name': 'Andrey',
+    'specialization': 'UX/UI Designer',
+    'tools': ['Figma', 'Flutter', 'Photoshop'],
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -62,36 +45,79 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: .center,
-          children: [
-            _showName
-                ? Text(_designerName, style: TextStyle(fontSize: _fontSize))
-                : Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontSize: _fontSize,
-                color: Colors.deepPurple,
+        child: Padding(
+          padding: EdgeInsets.only(top: 24, left: 24, right: 24),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'Name:',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    _profileData['name'],
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight(800),
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Text(
+                    'Specialization:',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    _profileData['specialization'],
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight(800),
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Text(
+                    'Tools:',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    _profileData['tools'].join(', '),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight(800),
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-
-      //persistentFooterButtons
-      persistentFooterButtons: [
-        ElevatedButton(
-          onPressed: _incrementCounter,
-          // child: const Text('Increment'),
-          child: const Icon(Icons.add),
-        ),
-        ElevatedButton(
-          onPressed: _decrementCounter,
-          // child: const Text('Decrement'),
-          child: const Icon(Icons.remove),
-        ),
-      ],
     );
   }
 }
