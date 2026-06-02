@@ -35,7 +35,22 @@ class _MyHomePageState extends State<MyHomePage> {
     'name': 'Andrey',
     'specialization': 'UX/UI Designer',
     'tools': ['Figma', 'Flutter', 'Photoshop'],
+    'experienceYears': 8,
   };
+
+  String _getGrade(int experience) {
+    if (experience < 1) {
+      return 'Noob';
+    } else if (experience < 3) {
+      return 'Junior';
+    } else if (experience < 6) {
+      return 'Middle';
+    } else if (experience < 10) {
+      return 'Senior';
+    } else {
+      return 'Legend';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Name:',
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: .w600,
                       letterSpacing: 0,
                     ),
                   ),
@@ -64,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     _profileData['name'],
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight(800),
+                      fontWeight: .w800,
                       letterSpacing: 0,
                     ),
                   ),
@@ -77,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Specialization:',
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: .w600,
                       letterSpacing: 0,
                     ),
                   ),
@@ -86,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     _profileData['specialization'],
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight(800),
+                      fontWeight: .w800,
                       letterSpacing: 0,
                     ),
                   ),
@@ -99,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Tools:',
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: .w600,
                       letterSpacing: 0,
                     ),
                   ),
@@ -108,7 +123,33 @@ class _MyHomePageState extends State<MyHomePage> {
                     _profileData['tools'].join(', '),
                     style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight(800),
+                      fontWeight: .w800,
+                      letterSpacing: 0,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        'Experience: ',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: .w600,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Spacer(),
+                  Text(
+                    _getGrade(_profileData['experienceYears']),
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: .w800,
                       letterSpacing: 0,
                     ),
                   ),
