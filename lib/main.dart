@@ -30,13 +30,27 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+class Profile {
+  final String name;
+  final String specialization;
+  final int experienceYears;
+  final List<String> tools;
+
+  Profile({
+    required this.name,
+    required this.specialization,
+    required this.experienceYears,
+    required this.tools,
+  });
+}
+
 class _MyHomePageState extends State<MyHomePage> {
-  final Map<String, dynamic> _profileData = {
-    'name': 'Andrey',
-    'specialization': 'UX/UI Designer',
-    'tools': ['Figma', 'Flutter', 'Photoshop'],
-    'experienceYears': 8,
-  };
+  final Profile _andreyProfile = Profile(
+    name: 'Andrey',
+    specialization: 'UX/UI Designer',
+    tools: ['Figma', 'Flutter', 'Photoshop'],
+    experienceYears: 8,
+  );
 
   String _getGrade(int experience) {
     if (experience < 1) {
@@ -76,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Spacer(),
                   Text(
-                    _profileData['name'],
+                    _andreyProfile.name,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: .w800,
@@ -98,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Spacer(),
                   Text(
-                    _profileData['specialization'],
+                    _andreyProfile.specialization,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: .w800,
@@ -120,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Spacer(),
                   Text(
-                    _profileData['tools'].join(', '),
+                    _andreyProfile.tools.join(','),
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: .w800,
@@ -132,21 +146,17 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(height: 8),
               Row(
                 children: [
-                  Row(
-                    children: [
-                      Text(
-                        'Experience: ',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: .w600,
-                          letterSpacing: 0,
-                        ),
-                      ),
-                    ],
+                  Text(
+                    'Experience: ',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: .w600,
+                      letterSpacing: 0,
+                    ),
                   ),
                   Spacer(),
                   Text(
-                    _getGrade(_profileData['experienceYears']),
+                    _getGrade(_andreyProfile.experienceYears),
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: .w800,
