@@ -52,7 +52,28 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(child: Container(height: 100, color: Colors.blue)),
+      body: Center(
+        child: Container(
+          height: 200,
+          width: 200,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 129, 248, 230),
+            border: Border.all(
+              color: const Color.fromARGB(255, 39, 230, 201),
+              width: 3.0,
+            ),
+            borderRadius: BorderRadius.circular(24),
+            boxShadow: [
+              BoxShadow(
+                color: const Color.fromARGB(122, 22, 192, 167),
+                spreadRadius: 2,
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
