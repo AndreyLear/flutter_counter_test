@@ -54,8 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Container(
-          height: 200,
-          width: 200,
+          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 24),
+          margin: EdgeInsets.all(32),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 129, 248, 230),
             border: Border.all(
@@ -69,6 +69,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 spreadRadius: 2,
                 blurRadius: 10,
                 offset: const Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Column(
+            children: [
+              Text(
+                'Card Title',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 0,
+                ),
+              ),
+              SizedBox(height: 12),
+              Text(
+                'This is the description of your card',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                  letterSpacing: 0,
+                ),
               ),
             ],
           ),
