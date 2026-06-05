@@ -73,22 +73,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ],
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'Card Title',
                 style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
+                  color: const Color.fromARGB(255, 11, 66, 58),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
+                  height: 1.4,
                   letterSpacing: 0,
                 ),
               ),
-              SizedBox(height: 12),
+              SizedBox(height: 8),
               Text(
                 'This is the description of your card',
                 style: TextStyle(
+                  color: const Color.fromARGB(255, 64, 64, 64),
                   fontSize: 14,
                   fontWeight: FontWeight.normal,
-                  letterSpacing: 0,
+                  height: 1.4,
+                  letterSpacing: 0.2,
                 ),
               ),
             ],
