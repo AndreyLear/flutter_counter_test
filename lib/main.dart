@@ -78,37 +78,27 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: Container(
-        height: double.infinity,
-        width: 200,
+        padding: EdgeInsets.all(16),
+        width: double.infinity,
+        height: 100,
         decoration: BoxDecoration(color: Colors.grey.shade300),
-        child: Column(
-          mainAxisAlignment: .spaceBetween,
-          // mainAxisAlignment: .center,
-          // mainAxisAlignment: .spaceAround,
-          // mainAxisAlignment: .end,
-          // mainAxisAlignment: .start,
-          crossAxisAlignment: .stretch,
-          // crossAxisAlignment: .center,
-          // crossAxisAlignment: .end,
-          // crossAxisAlignment: .start,
+        child: Row(
+          crossAxisAlignment: .center,
           children: [
-            SizedBox(height: 16),
             Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(color: Colors.green),
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: .all(Radius.circular(40)),
+              ),
+              child: const Icon(Icons.warning, size: 32, color: Colors.red),
             ),
-            Container(
-              width: 80,
-              height: 50,
-              decoration: BoxDecoration(color: Colors.red),
+            SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                "This is a terribly long warning message that will absolutely break the layout of this row and trigger the striped overflow bar.",
+              ),
             ),
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(color: Colors.blue),
-            ),
-            SizedBox(height: 16),
           ],
         ),
       ),
