@@ -66,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: Text(
@@ -77,30 +78,63 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.all(16),
-        width: double.infinity,
-        height: 100,
-        decoration: BoxDecoration(color: Colors.grey.shade300),
-        child: Row(
-          crossAxisAlignment: .center,
-          children: [
-            Container(
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: .all(Radius.circular(40)),
-              ),
-              child: const Icon(Icons.warning, size: 32, color: Colors.red),
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(16),
+            decoration: BoxDecoration(color: Colors.white),
+            child: Row(
+              mainAxisAlignment: .spaceBetween,
+              children: [
+                Container(
+                  child: ClipOval(
+                    child: Image.network(
+                      'https://placehold.co/48x48.png',
+                      width: 48,
+                      height: 48,
+                    ),
+                  ),
+                ),
+                Container(
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      const Icon(
+                        Icons.notifications,
+                        size: 32,
+                        color: Color(0xFF0769CC),
+                      ),
+                      Positioned(
+                        top: -8,
+                        right: -8,
+                        child: Container(
+                          // width: 24,
+                          // height: 24,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 6,
+                            vertical: 1,
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: .circular(40),
+                            color: Colors.red,
+                          ),
+                          child: Text(
+                            '9+',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: .w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                "This is a terribly long warning message that will absolutely break the layout of this row and trigger the striped overflow bar.",
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
